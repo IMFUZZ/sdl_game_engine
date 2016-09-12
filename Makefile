@@ -1,15 +1,15 @@
 #http://lazyfoo.net/tutorials/SDL/01_hello_SDL/index.php
 #OBJS specifies which files to compile as part of the project
-OBJS = main.cpp
+OBJS = ./src/main.cpp
 
 #CC specifies which compiler we're using
 CC = g++
 
 #INCLUDE_PATHS specifies the additional include paths we'll need
-INCLUDE_PATHS = -I.\SDL2_32\include\SDL2
+INCLUDE_PATHS = -I.\lib\SDL2_32\include\SDL2
 
 #LIBRARY_PATHS specifies the additional library paths we'll need
-LIBRARY_PATHS = -L.\SDL2_32\lib
+LIBRARY_PATHS = -L.\lib\SDL2_32\lib
 
 #COMPILER_FLAGS specifies the additional compilation options we're using
 # -w suppresses all warnings
@@ -24,4 +24,4 @@ OBJ_NAME = main
 
 #This is the target that compiles our executable
 all : $(OBJS)
-	$(CC) $(OBJS) $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o $(OBJ_NAME)
+	$(CC) $(OBJS) $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o ./bin/$(OBJ_NAME)
