@@ -5,6 +5,7 @@
  ___) | |_| | |__|_____| |_| |/ ___ \| |  | | |__|_____| |___| |\  | |_| || || |\  | |___ 
 |____/|____/|_____|     \____/_/   \_\_|  |_|_____|    |_____|_| \_|\____|___|_| \_|_____|
 
+#WINDOWS : 
 
 What you need : 
 
@@ -23,5 +24,24 @@ Things to do :
 COMPILING! :
 
 	- Open a windows cmd in the project root directory (where main.cpp is.. DUH!)
-	- Type : 'Make' (Without the ''.. DUHH)
-	- The file "main.exe" should be created in the directory!
+	- Type : 'make' (Without the ''.. DUHH)
+	- The file "main.exe" should be created in the "./src" directory!
+
+#LINUX :
+
+What you need : 
+
+	- Linux that can install SDL2 (Tested on SDL2)
+	- A clone of the repository (obviously)
+	- G++ (should already be included) and SDL2 (apt-get install libsdl2, pacman -S SDL2, etc depending on your system)
+
+Things to do :
+
+	- Don't edit the Makefile (DON'T)
+	- Chill
+
+COMPILING! :
+
+	- Open a terminal in the project root directory
+	- Type : 'make' (Without the ''.. DUHH)
+	- The file ".main" should be created in the "./src" directory!

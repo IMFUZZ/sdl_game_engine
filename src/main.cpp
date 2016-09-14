@@ -2,11 +2,11 @@
 and may not be redistributed without written permission.*/
 
 //Using SDL and standard IO
-#include <SDL.h>
+#include <SDL2/SDL.h>
 #include <stdio.h>
 #include <iostream>
 
-#include "game/game.h"
+#include "gameEngine/GameEngine.h"
 
 using namespace std;
 
@@ -16,7 +16,7 @@ const int SCREEN_HEIGHT = 480;
 
 int main( int argc, char* args[] )
 {
-	Game game = Game();
+	GameEngine game = GameEngine();
 	//The window we'll be rendering to
 	SDL_Window* window = NULL;
 	
