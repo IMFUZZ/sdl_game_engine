@@ -1,0 +1,10 @@
+﻿  GameEngine.cpp
+c:\users\daniel-junior\documents\visual studio 2015\projects\sdl_game_engine\sdl_game_engine\gameengine.cpp(90): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\daniel-junior\documents\visual studio 2015\projects\sdl_game_engine\sdl_game_engine\gameengine.cpp(91): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\daniel-junior\documents\visual studio 2015\projects\sdl_game_engine\sdl_game_engine\gameengine.cpp(103): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  Main.cpp
+  GLSLProgram.cpp
+  sdl_game_engine.vcxproj -> c:\users\daniel-junior\documents\visual studio 2015\Projects\sdl_game_engine\Debug\sdl_game_engine.exe
+  sdl_game_engine.vcxproj -> c:\users\daniel-junior\documents\visual studio 2015\Projects\sdl_game_engine\Debug\sdl_game_engine.pdb (Partial PDB)
