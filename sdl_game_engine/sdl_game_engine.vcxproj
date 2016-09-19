@@ -137,13 +137,6 @@
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="vertex.h" />
   </ItemGroup>
-  <ItemGroup>
-    <Image Include="..\..\..\..\..\Desktop\test.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\Debug\shaders\colorShading.frag" />
-    <None Include="..\Debug\shaders\colorShading.vert" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

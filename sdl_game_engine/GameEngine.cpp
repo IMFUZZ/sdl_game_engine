@@ -17,7 +17,7 @@ GameEngine::~GameEngine() {
 }
 
 void GameEngine::InitShaders() {
-	_colorProgram.CompileShaders("./Debug/colorShading.vert", "./Debug/colorShading.frag");
+	_colorProgram.CompileShaders("../resources/shaders/colorShading.vert", "../resources/shaders/colorShading.frag");
 	_colorProgram.AddAttribute("vertexPosition");
 	_colorProgram.AddAttribute("vertexColor");
 	_colorProgram.LinkShaders();
@@ -53,7 +53,7 @@ void GameEngine::InitRequirement(const char* a_name, int a_width, int a_height) 
 void GameEngine::Start() {
 	isRunning = true;
 	_sprite.Init(-1.0f, -1.0f, 1.0f, 1.0f);
-	_playerTexture = ImageLoader::LoadPNG("./Debug/test.png");
+	_playerTexture = ImageLoader::LoadPNG("../resources/textures/test.png");
 	Update();
 }
 
