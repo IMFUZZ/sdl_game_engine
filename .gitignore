@@ -1,1 +1,4 @@
 bin/
+*.obj
+Debug/
+sdl_game_engine/Debug

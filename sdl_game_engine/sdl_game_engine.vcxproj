@@ -76,7 +76,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-    </ClCompile>
+	</ClCompile>
     <Link>
       <AdditionalLibraryDirectories>C:\cpp_libs\GLEW2_32\lib;C:\cpp_libs\SDL2_32\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;glew32s.lib;SDL2main.lib;SDL2.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -119,6 +119,8 @@
   <ItemGroup>
     <ClCompile Include="EngineError.cpp" />
     <ClCompile Include="GameEngine.cpp" />
+    <ClCompile Include="GameEngineEnvironment.cpp" />
+    <ClCompile Include="GameEngineV2.cpp" />
     <ClCompile Include="GLSLProgram.cpp" />
     <ClCompile Include="ImageLoader.cpp" />
     <ClCompile Include="IOManager.cpp" />
@@ -129,6 +131,8 @@
   <ItemGroup>
     <ClInclude Include="EngineError.h" />
     <ClInclude Include="GameEngine.h" />
+    <ClInclude Include="GameEngineEnvironment.h" />
+    <ClInclude Include="GameEngineV2.h" />
     <ClInclude Include="GLSLProgram.h" />
     <ClInclude Include="GLTexture.h" />
     <ClInclude Include="ImageLoader.h" />
