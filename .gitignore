@@ -11,7 +11,7 @@
 *.userprefs
 
 # Build results
-[Dd]ebug/
+sdl_game_engine/[Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/
@@ -21,9 +21,6 @@ bld/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
-
-#dll needed
-!Debug/SDL2.dll
 
 # Visual Studio 2015 cache/options directory
 .vs/
