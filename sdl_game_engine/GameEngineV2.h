@@ -1,3 +1,5 @@
+#pragma once
+
 #define GLEW_STATIC
 
 #include <SDL2/SDL.h>

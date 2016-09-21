@@ -126,6 +126,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BaseEntity.cpp" />
     <ClCompile Include="EngineError.cpp" />
     <ClCompile Include="GameEngine.cpp" />
     <ClCompile Include="GameEngineEnvironment.cpp" />
@@ -138,6 +139,7 @@
     <ClCompile Include="Sprite.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BaseEntity.h" />
     <ClInclude Include="EngineError.h" />
     <ClInclude Include="GameEngine.h" />
     <ClInclude Include="GameEngineEnvironment.h" />
