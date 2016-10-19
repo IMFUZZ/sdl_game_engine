@@ -1,6 +1,6 @@
 #pragma once
 #include <SDL2/SDL.h>
-#include <SDL_ttf.h>
+#include <SDL/SDL_ttf.h>
 #include <string>
 
 class Font

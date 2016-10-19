@@ -2,7 +2,7 @@
 #include <GL/glew.h>
 #include <string>
 #include <cstddef>
-#include "vertex.h"
+#include "Vertex.h"
 #include "GLTexture.h"
 
 class Sprite {

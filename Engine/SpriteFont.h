@@ -2,6 +2,7 @@
 
 #include <string>
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
 #include <GL/glew.h>
 #include "Font.h"
 #include "Sprite.h"

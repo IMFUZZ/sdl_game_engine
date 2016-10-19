@@ -2,7 +2,7 @@
 #include <string>
 #include <GL/glew.h>
 #include "GLTexture.h"
-#include "picoPNG.h"
+#include "PicoPNG.h"
 #include "IOManager.h"
 #include "EngineError.h"
 
