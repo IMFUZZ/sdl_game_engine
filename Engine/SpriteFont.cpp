@@ -4,20 +4,37 @@
 
 SpriteFont::SpriteFont() {}
 
-SpriteFont::SpriteFont(float a_x, float a_y, float a_width, float a_height, std::string a_message, int a_wrapWidth, Font a_font) : font(a_font) {
+SpriteFont::SpriteFont(
+	float a_x, 
+	float a_y, 
+	float a_width, 
+	float a_height, 
+	std::string a_text, 
+	int a_wrapWidth, 
+	Font a_font) : 
+		x(a_x),
+		y(a_y), 
+		width(a_width),
+		height(a_height),
+		text(a_text),
+		wrapWidth(a_wrapWidth),
+		font(a_font) {}
+
+SpriteFont::~SpriteFont() {}
+
+void SpriteFont::setText(std::string a_text) {
+	text = a_text;
 	GLenum glError;
-	SDL_Surface* _text = TTF_RenderText_Blended_Wrapped(a_font.ttf, a_message.c_str(), a_font.textColor, a_wrapWidth);
-	if (_text == NULL) {
-		fatalError("SpriteFont for message : '" + a_message + "' could not be loaded!");
+	surface = TTF_RenderText_Blended_Wrapped(font.ttf, text.c_str(), font.textColor, wrapWidth);
+	if (surface == NULL) {
+		fatalError("SpriteFont for message : '" + text + "' could not be loaded!");
 	}
-	_texture.id = SDL_GL_LoadTexture(_text, _textureCoord);
+	_texture.id = SDL_GL_LoadTexture(surface, _textureCoord);
 	if ((glError = glGetError()) != GL_NO_ERROR) {
 		printf("Warning: Couldn't create texture: 0x%x\n", glError);
 	}
-	SDL_FreeSurface(_text);
+	SDL_FreeSurface(surface);
 }
-
-SpriteFont::~SpriteFont() {}
 
 int SpriteFont::power_of_two(int input) {
 	int value = 1;

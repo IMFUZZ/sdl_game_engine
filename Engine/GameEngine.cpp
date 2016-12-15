@@ -31,7 +31,7 @@ void GameEngine::initSystem() {
 	_window.create("Game engine", _screenWidth, _screenHeight, DEFAULT);
 	_camera.init(_screenWidth, _screenHeight);
 	_sprite = Sprite(0.0f, 0.0f, 1.0f, 1.0f, "../resources/textures/default.png", 1.0f, { 255, 255, 255, 255 });
-	
+	_spriteFont = SpriteFont(0.0f, 0.0f, 1.0f, 1.0f, "FPS : " + std::to_string(_currentFps), 200, ResourcesManager::getFont("../resources/fonts/orangekid.ttf"));
 	// ----------- TMP -----------
 }
 
@@ -45,6 +45,7 @@ void GameEngine::update() {
 	double elapsed;
 	while (isRunning) {
 		elapsed = regulateFPS();
+		_spriteFont.setText(std::to_string(_currentFps));
 		while (SDL_PollEvent(&event) != 0) {
 			switch (event.type) {
 				case SDL_QUIT:
@@ -90,20 +91,25 @@ double GameEngine::tick() {
 	long double deltaTime = 0.0f;
 	previousTick = currentTick;
 	currentTick = SDL_GetTicks();
-	deltaTime = (currentTick - previousTick) / 1000.0f;
+	deltaTime = (currentTick-previousTick)/1000.0f;
 	return deltaTime;
 }
 
 double GameEngine::regulateFPS() {
 	long double elapsedTime = this->tick();
-	int fpsGap = (int)((1000.0f / _fps) - (elapsedTime*1000.0f));
-	if (fpsGap > 0.0f) { SDL_Delay(fpsGap); }
-	_currentFps = ((elapsedTime*1000.0f) + (1000.0f / _fps));
+	long double fpsGap = (1000.0f/_fps)-(elapsedTime*1000.0f);
+	if (fpsGap > 0.0)
+		SDL_Delay(fpsGap);
+
+	// Update the elapsedTime to the regulated elapsed time
+	elapsedTime = (elapsedTime)+fpsGap/1000.0f;
+
+	// 1 second / fraction of second passed
+	_currentFps = 1/elapsedTime;
 	return elapsedTime;
 }
 
 void GameEngine::draw() {
-	_spriteFont = SpriteFont(0.0f, 0.0f, 1.0f, 1.0f, "FPS : " + std::to_string(_currentFps), 200, ResourcesManager::getFont("../resources/fonts/orangekid.ttf"));
 	glClearDepth(1.0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -111,8 +117,6 @@ void GameEngine::draw() {
 	glActiveTexture(GL_TEXTURE0);
 	GLint textureLocation = _colorProgram.getUniformLocation("mySampler");
 	glUniform1i(textureLocation, 0);
-	//GLuint timeLocation = _colorProgram.getUniformLocation("time");
-	//glUniform1f(timeLocation, currentTick / 50);
 	
 	// set the camera matrix
 	GLuint pLocation = _colorProgram.getUniformLocation("P");
@@ -120,7 +124,7 @@ void GameEngine::draw() {
 	glUniformMatrix4fv(pLocation, 1, GL_FALSE, &(cameraMatrix[0][0]));
 
 	_spriteBatch.begin();
-	//_spriteBatch.draw(glm::vec4(0.0f, 0.0f, 500.0f, 500.0f), _sprite);
+	_spriteBatch.draw(glm::vec4(0.0f, 0.0f, 500.0f, 500.0f), _sprite);
 	_spriteBatch.draw(glm::vec4(0.0f, 0.0f, _spriteFont.getTexture().width, _spriteFont.getTexture().height), glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), _spriteFont.getTexture().id, 0.0f, {255, 255, 255, 255});
 	_spriteBatch.end();
 	_spriteBatch.renderBatch();

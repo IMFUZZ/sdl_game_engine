@@ -12,11 +12,13 @@ Window::~Window() {
 
 int Window::create(std::string a_title, int a_width, int a_height, unsigned int a_flags) {
 	Uint32 flags = SDL_WINDOW_OPENGL;
-	if (a_flags & INVISIBLE) { flags |= SDL_WINDOW_HIDDEN; }
-	if (a_flags & FULLSCREEN) { 
-		flags |= SDL_WINDOW_FULLSCREEN_DESKTOP; 
-	}
-	if (a_flags & BORDERLESS) { flags |= SDL_WINDOW_BORDERLESS; }
+	if (a_flags & INVISIBLE)
+		flags |= SDL_WINDOW_HIDDEN;
+	if (a_flags & FULLSCREEN)
+		flags |= SDL_WINDOW_FULLSCREEN_DESKTOP;
+	if (a_flags & BORDERLESS)
+		flags |= SDL_WINDOW_BORDERLESS;
+
 	_sdlWindow = SDL_CreateWindow(
 		a_title.c_str(),
 		SDL_WINDOWPOS_CENTERED,
@@ -25,9 +27,12 @@ int Window::create(std::string a_title, int a_width, int a_height, unsigned int 
 		a_height,
 		flags
 	);
-	if (_sdlWindow == nullptr) { fatalError("Could not initialize the Window!"); }
-	if (SDL_GL_CreateContext(_sdlWindow) == nullptr) { fatalError("Could not create OpenGL context!"); }
-	if (glewInit() != GLEW_OK) { fatalError("Could not initialize glew!"); }
+	if (_sdlWindow == nullptr)
+		fatalError("Could not initialize the Window!");
+	if (SDL_GL_CreateContext(_sdlWindow) == nullptr)
+		fatalError("Could not create OpenGL context!");
+	if (glewInit() != GLEW_OK)
+		fatalError("Could not initialize glew!");
 	
 	glClearColor(0.52f, 0.80f, 0.98f, 1.0f);
 	SDL_GL_SetSwapInterval(1); // Activate the vSync

@@ -5,8 +5,8 @@
 #include <iostream>
 #include <string>
 #include "GameEngine.h"
-#include "GameEngineV2.h"
-#include "BaseEntity.h"
+/*#include "GameEngineV2.h"
+#include "BaseEntity.h"*/
 
 using namespace std;
 
