@@ -20,10 +20,11 @@
 
 class GameEngine {
 public:
-	GameEngine();
+	GameEngine(std::string a_configFilePath);
 	~GameEngine();
 	void initSystem();
 	void initShaders();
+	void initDisplay();
 	void start();
 	void stop();
 	void update();
@@ -32,7 +33,8 @@ public:
 	void draw();
 
 private:
-	int _screenWidth, _screenHeight, _fps, _currentFps;
+	std::string _configFilePath;
+	int _fps, _currentFps;
 	bool isRunning = false;
 	int currentTick = 0;
 	int previousTick = 0;

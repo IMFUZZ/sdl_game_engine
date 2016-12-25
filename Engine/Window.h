@@ -13,8 +13,8 @@ public:
 	~Window();
 	int create(std::string a_title, int a_width, int a_height, unsigned int a_flags);
 	void swapBuffer();
-	int getwidth() { _width; }
-	int getHeight() { _height; }
+	int getWidth() { return _width; }
+	int getHeight() { return _height; }
 private:
 	int _height, _width;
 	SDL_Window* _sdlWindow;

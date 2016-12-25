@@ -2,10 +2,15 @@
 #include "GameEngine.h"
 #include "ResourcesManager.h"
 
-GameEngine::GameEngine() : _screenWidth(800), _screenHeight(600), _fps(60) {
+GameEngine::GameEngine(std::string a_configFilePath) : _fps(60), _configFilePath(a_configFilePath) {
 	ResourcesManager::init();
 	initSystem();
+	initDisplay();
 	initShaders();
+	// ----------- TMP -----------
+	_sprite = Sprite(0.0f, 0.0f, 1.0f, 1.0f, "../resources/textures/default.png", 1.0f, { 255, 255, 255, 255 });
+	_spriteFont = SpriteFont(0.0f, 0.0f, 1.0f, 1.0f, "FPS : " + std::to_string(_currentFps), 200, ResourcesManager::getFont("../resources/fonts/orangekid.ttf"));
+	// ----------- TMP -----------
 	_spriteBatch.init();
 }
 
@@ -26,13 +31,12 @@ void GameEngine::initSystem() {
 	if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
 		fatalError("SDL initialization failed!");
 	}
-	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
-	// ----------- TMP -----------
-	_window.create("Game engine", _screenWidth, _screenHeight, DEFAULT);
-	_camera.init(_screenWidth, _screenHeight);
-	_sprite = Sprite(0.0f, 0.0f, 1.0f, 1.0f, "../resources/textures/default.png", 1.0f, { 255, 255, 255, 255 });
-	_spriteFont = SpriteFont(0.0f, 0.0f, 1.0f, 1.0f, "FPS : " + std::to_string(_currentFps), 200, ResourcesManager::getFont("../resources/fonts/orangekid.ttf"));
-	// ----------- TMP -----------
+	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);	
+}
+
+void GameEngine::initDisplay() {
+	_window.create("Game engine", 800, 600, DEFAULT);
+	_camera.init(_window.getWidth(), _window.getHeight());
 }
 
 void GameEngine::start() {

@@ -12,9 +12,8 @@ Sprite::Sprite(float a_x, float a_y, float a_width, float a_height, std::string 
 }
 
 Sprite::~Sprite() {
-	if (_vboID != 0) {
+	if (_vboID != 0)
 		glDeleteBuffers(1, &_vboID);
-	}
 }
 
 void Sprite::init(float a_x, float a_y, float a_width, float a_height, std::string a_texturePath, float a_depth, Color a_color) {
@@ -91,8 +90,8 @@ void Sprite::setTexture(GLTexture a_texture) {
 }
 
 void Sprite::draw() {
+	// THIS DOESN'T WORK - DJDUBE
 	glBindTexture(GL_TEXTURE_2D, _texture.id);
-	
 	glBindBuffer(GL_ARRAY_BUFFER, _vboID);
 	
 	glDrawArrays(GL_TRIANGLES, 0, 6); // Draw the 6 vertices on the screen : shape, first elem, number of elem (vertex)

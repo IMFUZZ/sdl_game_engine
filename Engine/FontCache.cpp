@@ -5,7 +5,8 @@
 FontCache::FontCache() {}
 FontCache::~FontCache() {
 	for (auto i = _fontMap.begin(); i != _fontMap.end(); i++) {
-		//TTF_CloseFont(i->second.ttf);
+		// WIP - DJDUBE
+		/*TTF_CloseFont(i->second.ttf);*/
 	}
 }
 

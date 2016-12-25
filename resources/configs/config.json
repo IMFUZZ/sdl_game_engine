@@ -1,0 +1,10 @@
+{
+	"display": {
+		"width":800,
+		"height":600,
+		"fullscreen": 0
+	},
+	"system": {
+		"fps":60
+	}
+}

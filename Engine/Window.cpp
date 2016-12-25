@@ -11,6 +11,9 @@ Window::~Window() {
 }
 
 int Window::create(std::string a_title, int a_width, int a_height, unsigned int a_flags) {
+	_width = a_width;
+	_height = a_height;
+
 	Uint32 flags = SDL_WINDOW_OPENGL;
 	if (a_flags & INVISIBLE)
 		flags |= SDL_WINDOW_HIDDEN;
@@ -35,7 +38,8 @@ int Window::create(std::string a_title, int a_width, int a_height, unsigned int 
 		fatalError("Could not initialize glew!");
 	
 	glClearColor(0.52f, 0.80f, 0.98f, 1.0f);
-	SDL_GL_SetSwapInterval(1); // Activate the vSync
+	// Activate the vSync
+	SDL_GL_SetSwapInterval(1);
 
 	//Enable alpha blending
 	glEnable(GL_BLEND);

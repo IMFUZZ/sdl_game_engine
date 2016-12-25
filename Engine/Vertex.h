@@ -4,19 +4,15 @@
 #include <glm/glm.hpp>
 
 struct Position {
-	float x;
-	float y;
+	float x, y;
 };
+
 struct Color {
-	GLubyte r;
-	GLubyte g;
-	GLubyte b;
-	GLubyte a;
+	GLubyte r, g, b, a;
 };
 
 struct UV {
-	float u;
-	float v;
+	float u, v;
 };
 
 struct Vertex {
