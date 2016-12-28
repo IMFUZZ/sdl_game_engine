@@ -4,14 +4,17 @@
 #include <map>
 #include <string>
 
-class TextureCache {
-public:
-	TextureCache();
-	~TextureCache();
+namespace Engine {
 
-	GLTexture getTexture(std::string filePath);
+	class TextureCache {
+	public:
+		TextureCache();
+		~TextureCache();
 
-private:
-	std::map<std::string, GLTexture> _textureMap;
-};
+		GLTexture getTexture(std::string filePath);
 
+	private:
+		std::map<std::string, GLTexture> _textureMap;
+	};
+
+}

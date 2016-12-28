@@ -5,4 +5,8 @@
 #include <iostream>
 #include <SDL2/SDL.h>
 
-extern void fatalError(std::string errorMessage);
+namespace Engine {
+
+	extern void fatalError(std::string errorMessage);
+
+}

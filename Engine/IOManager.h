@@ -4,7 +4,11 @@
 #include <string>
 #include <fstream>
 
-class IOManager {
-public:
-	static int readFileToBuffer(const std::string a_filePath, std::vector<unsigned char>& a_buffer);
-};
+namespace Engine {
+
+	class IOManager {
+	public:
+		static int readFileToBuffer(const std::string a_filePath, std::vector<unsigned char>& a_buffer);
+	};
+
+}

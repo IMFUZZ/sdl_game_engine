@@ -1,15 +1,19 @@
 #include "ResourcesManager.h"
 
-TextureCache ResourcesManager::_textureCache;
-FontCache ResourcesManager::_fontCache;
+namespace Engine {
 
-void ResourcesManager::init() { TTF_Init(); }
-void ResourcesManager::quit() { TTF_Quit(); }
+	TextureCache ResourcesManager::_textureCache;
+	FontCache ResourcesManager::_fontCache;
 
-GLTexture ResourcesManager::getTexture(std::string a_filePath) {
-	return _textureCache.getTexture(a_filePath);
-}
+	void ResourcesManager::init() { TTF_Init(); }
+	void ResourcesManager::quit() { TTF_Quit(); }
 
-Font ResourcesManager::getFont(std::string a_filePath) {
-	return _fontCache.getFont(a_filePath);
+	GLTexture ResourcesManager::getTexture(std::string a_filePath) {
+		return _textureCache.getTexture(a_filePath);
+	}
+
+	Font ResourcesManager::getFont(std::string a_filePath) {
+		return _fontCache.getFont(a_filePath);
+	}
+
 }

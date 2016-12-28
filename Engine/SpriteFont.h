@@ -8,26 +8,27 @@
 #include "Sprite.h"
 #include "GLTexture.h"
 
-class SpriteFont : virtual public Sprite
-{
-public:
-	SpriteFont();
-	SpriteFont(float a_x, float a_y, float a_width, float a_height, std::string a_message, int a_wrapWidth, Font a_font);
-	~SpriteFont();
-	int x;
-	int y;
-	int width;
-	int height;
-	std::string text;
-	int wrapWidth;
-	Font font;
+namespace Engine {
 
-	void setText(std::string a_text);
+	class SpriteFont : virtual public Sprite
+	{
+	public:
+		SpriteFont();
+		SpriteFont(float a_x, float a_y, std::string a_text, std::string a_fontPath, float a_scale = 1.0f, int a_wrapWidth = 800);
+		SpriteFont(float a_x, float a_y, std::string a_text, Font a_font, float a_scale = 1.0f, int a_wrapWidth = 800);
+		~SpriteFont();
+		
+		std::string text;
+		int wrapWidth;
+		Font font;
+		float scale;
 
-private:
-	SDL_Surface* surface;
-	static int power_of_two(int input);
-	GLuint SDL_GL_LoadTexture(SDL_Surface *surface, GLfloat *texcoord);
-	GLfloat _textureCoord[4];
-};
+		void setText(std::string a_text);
 
+	private:
+		static int power_of_two(int input);
+		GLuint SDL_GL_LoadTexture(SDL_Surface *surface, GLfloat *texcoord);
+		GLfloat _textureCoord[4];
+	};
+	
+}

@@ -6,7 +6,11 @@
 #include "IOManager.h"
 #include "EngineError.h"
 
-class ImageLoader {
-public:
-	static GLTexture loadPNG(std::string a_filePath);
-};
+namespace Engine {
+
+	class ImageLoader {
+	public:
+		static GLTexture loadPNG(std::string a_filePath);
+	};
+
+}

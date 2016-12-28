@@ -1,5 +1,8 @@
-
 #include "EventManager.h"
 
-EventManager::EventManager() {}
-EventManager::~EventManager() {}
+namespace Engine {
+
+	EventManager::EventManager() {}
+	EventManager::~EventManager() {}
+
+}

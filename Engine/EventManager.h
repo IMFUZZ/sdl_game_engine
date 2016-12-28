@@ -1,8 +1,12 @@
 #pragma once
 
-class EventManager
-{
-public:
-	EventManager();
-	~EventManager();
-};
+namespace Engine {
+
+	class EventManager
+	{
+	public:
+		EventManager();
+		~EventManager();
+	};
+
+}

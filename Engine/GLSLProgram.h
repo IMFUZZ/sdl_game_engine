@@ -9,25 +9,27 @@
 
 #include "EngineError.h"
 
-using namespace std;
+namespace Engine {
 
-class GLSLProgram {
-	
-	public:
-		GLSLProgram();
-		~GLSLProgram();
-		void compileShaders(const string& vertexShaderFilePath, const string& fragmentShaderFilePath);
-		void linkShaders();
-		void addAttribute(const std::string& a_attributeName);
-		GLint getUniformLocation(const std::string& a_uniformName);
-		void use();
-		void unuse();
+	class GLSLProgram {
+		
+		public:
+			GLSLProgram();
+			~GLSLProgram();
+			void compileShaders(const std::string& vertexShaderFilePath, const std::string& fragmentShaderFilePath);
+			void linkShaders();
+			void addAttribute(const std::string& a_attributeName);
+			GLint getUniformLocation(const std::string& a_uniformName);
+			void use();
+			void unuse();
 
-	private:
-		int _numAttributes;
-		GLuint _programID;
-		GLuint _vertexShaderID;
-		GLuint _fragmentShaderID;
+		private:
+			int _numAttributes;
+			GLuint _programID;
+			GLuint _vertexShaderID;
+			GLuint _fragmentShaderID;
 
-		void compileShader(const std::string a_shaderFilePath, GLuint id);
-};
+			void compileShader(const std::string a_shaderFilePath, GLuint id);
+	};
+
+}
